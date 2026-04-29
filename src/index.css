@@ -1,3 +1,56 @@
+/* src/index.css - Add at the top */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Mobile viewport fix */
+html {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  width: 100%;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/* Prevent horizontal scroll on all elements */
+.app,
+.home,
+.booking-page,
+.doctors-page,
+.services-page,
+.about-page,
+.contact-page,
+.profile-page,
+.appointments-container {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Responsive container */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Mobile breakpoints */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 0.75rem;
+  }
+  
+  /* Hide horizontal scroll */
+  body {
+    overflow-x: hidden;
+  }
+}
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

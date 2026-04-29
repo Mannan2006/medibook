@@ -234,6 +234,33 @@ const Navbar = () => {
       </div>
 
       <style>{`
+      /* Add to Navbar component's styles */
+@media (max-width: 768px) {
+  .nav-desktop {
+    display: none !important;
+  }
+  
+  .mobile-menu-btn {
+    display: block !important;
+  }
+  
+  .nav-container {
+    padding: 0.5rem 1rem !important;
+  }
+  
+  .logo-text {
+    font-size: 1rem !important;
+  }
+  
+  .logo-icon {
+    font-size: 1.2rem !important;
+  }
+  
+  .logo-badge {
+    font-size: 0.55rem !important;
+    padding: 0.1rem 0.3rem !important;
+  }
+}
         .nav-container {
           max-width: 1400px;
           margin: 0 auto;

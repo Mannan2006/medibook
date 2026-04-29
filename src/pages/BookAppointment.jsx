@@ -506,12 +506,15 @@ const BookAppointment = () => {
         </div>
       </div>
 
-               <style>{`
+                     <style>{`
+        /* Base styles */
         .booking-page {
           min-height: 100vh;
           background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
           padding: 1rem;
-          padding-top: 85px;  /* ← ADD THIS - pushes content below navbar */
+          padding-top: 80px;
+          width: 100%;
+          overflow-x: hidden;
         }
 
         .booking-header {
@@ -531,6 +534,7 @@ const BookAppointment = () => {
           opacity: 0.9;
         }
 
+        /* Progress Steps - Mobile Friendly */
         .progress-steps {
           display: flex;
           align-items: center;
@@ -540,6 +544,7 @@ const BookAppointment = () => {
           background: white;
           padding: 0.75rem;
           border-radius: 50px;
+          flex-wrap: nowrap;
         }
 
         .step {
@@ -547,6 +552,7 @@ const BookAppointment = () => {
           flex-direction: column;
           align-items: center;
           gap: 0.25rem;
+          flex-shrink: 0;
         }
 
         .step-number {
@@ -570,6 +576,7 @@ const BookAppointment = () => {
         .step-label {
           font-size: 0.7rem;
           color: #718096;
+          text-align: center;
         }
 
         .step.active .step-label {
@@ -588,26 +595,212 @@ const BookAppointment = () => {
           background: #667eea;
         }
 
+        /* Content */
         .booking-content {
           max-width: 1200px;
           margin: 0 auto;
           background: white;
           border-radius: 20px;
           padding: 1.5rem;
+          width: 100%;
+          overflow-x: hidden;
         }
 
-        .step-content h2 {
-          color: #2d3748;
-          margin-bottom: 1rem;
-          font-size: 1.3rem;
-        }
-
+        /* Services Grid - Mobile Responsive */
         .services-grid {
           display: grid;
           grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
           gap: 1rem;
         }
 
+        /* Form Grid - Mobile Responsive */
+        .form-grid {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 0.75rem;
+        }
+
+        /* Time Slots - Mobile Responsive */
+        .time-slots {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+          gap: 0.5rem;
+        }
+
+        /* MOBILE RESPONSIVE BREAKPOINTS */
+        @media (max-width: 768px) {
+          .booking-page {
+            padding: 0.5rem;
+            padding-top: 70px;
+          }
+
+          .booking-header h1 {
+            font-size: 1.2rem;
+          }
+
+          .booking-header p {
+            font-size: 0.75rem;
+          }
+
+          /* Progress steps for mobile */
+          .progress-steps {
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+          }
+
+          .step-label {
+            font-size: 0.6rem;
+            display: none; /* Hide labels on very small screens */
+          }
+
+          .step.active .step-label {
+            display: block;
+          }
+
+          .step-line {
+            width: 20px;
+          }
+
+          /* Content padding */
+          .booking-content {
+            padding: 1rem;
+          }
+
+          .step-content h2 {
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+          }
+
+          /* Service cards mobile */
+          .services-grid {
+            grid-template-columns: 1fr;
+            gap: 0.75rem;
+          }
+
+          .service-card {
+            padding: 0.75rem;
+          }
+
+          .service-icon {
+            width: 40px;
+            height: 40px;
+            font-size: 1.2rem;
+          }
+
+          .service-card h3 {
+            font-size: 0.9rem;
+          }
+
+          .service-card p {
+            font-size: 0.7rem;
+          }
+
+          /* Form mobile */
+          .form-grid {
+            grid-template-columns: 1fr;
+            gap: 0.5rem;
+          }
+
+          .form-group.full-width {
+            grid-column: span 1;
+          }
+
+          .form-group label {
+            font-size: 0.75rem;
+          }
+
+          .form-group input,
+          .form-group textarea {
+            padding: 0.5rem;
+            font-size: 0.8rem;
+          }
+
+          /* Date and time mobile */
+          .datetime-container {
+            gap: 1rem;
+          }
+
+          label {
+            font-size: 0.8rem;
+          }
+
+          .date-picker {
+            padding: 0.5rem;
+            font-size: 0.8rem;
+          }
+
+          .time-slots {
+            grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+            gap: 0.4rem;
+          }
+
+          .time-slot {
+            padding: 0.4rem;
+            font-size: 0.7rem;
+          }
+
+          /* Buttons mobile */
+          .step-buttons {
+            flex-direction: column;
+            gap: 0.75rem;
+          }
+
+          .back-btn, .next-btn, .submit-btn {
+            width: 100%;
+            text-align: center;
+            justify-content: center;
+            padding: 0.5rem;
+          }
+
+          /* Summary mobile */
+          .booking-summary {
+            padding: 0.75rem;
+            margin: 1rem 0;
+          }
+
+          .summary-item {
+            font-size: 0.75rem;
+          }
+        }
+
+        /* Extra small devices */
+        @media (max-width: 480px) {
+          .step-number {
+            width: 25px;
+            height: 25px;
+            font-size: 0.7rem;
+          }
+
+          .step-line {
+            width: 15px;
+          }
+
+          .booking-content {
+            padding: 0.75rem;
+          }
+
+          .time-slots {
+            grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+          }
+
+          .time-slot {
+            padding: 0.3rem;
+            font-size: 0.65rem;
+          }
+        }
+
+        /* Tablet devices */
+        @media (min-width: 769px) and (max-width: 1024px) {
+          .services-grid {
+            grid-template-columns: repeat(2, 1fr);
+          }
+          
+          .booking-page {
+            padding-top: 75px;
+          }
+        }
+
+        /* Rest of your existing CSS stays the same */
         .service-card {
           background: #f7fafc;
           border-radius: 12px;
@@ -676,12 +869,6 @@ const BookAppointment = () => {
           font-size: 0.9rem;
         }
 
-        .time-slots {
-          display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
-          gap: 0.5rem;
-        }
-
         .time-slot {
           padding: 0.5rem;
           border: 2px solid #e2e8f0;
@@ -690,6 +877,7 @@ const BookAppointment = () => {
           cursor: pointer;
           transition: all 0.3s;
           font-size: 0.8rem;
+          text-align: center;
         }
 
         .time-slot:hover {
@@ -718,12 +906,6 @@ const BookAppointment = () => {
         .summary-item {
           margin-bottom: 0.35rem;
           font-size: 0.85rem;
-        }
-
-        .form-grid {
-          display: grid;
-          grid-template-columns: repeat(2, 1fr);
-          gap: 0.75rem;
         }
 
         .form-group {
@@ -787,30 +969,6 @@ const BookAppointment = () => {
           border-radius: 8px;
           color: #ed8936;
           font-size: 0.85rem;
-        }
-
-        /* Mobile responsive adjustments */
-        @media (max-width: 768px) {
-          .booking-page {
-            padding: 0.5rem;
-            padding-top: 75px;  /* Smaller padding for mobile */
-          }
-          .form-grid {
-            grid-template-columns: 1fr;
-          }
-          .form-group.full-width {
-            grid-column: span 1;
-          }
-          .progress-steps {
-            max-width: 100%;
-            padding: 0.5rem;
-          }
-          .step-line {
-            width: 20px;
-          }
-          .booking-header h1 {
-            font-size: 1.2rem;
-          }
         }
       `}</style>
     </>
