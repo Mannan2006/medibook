@@ -36,3 +36,28 @@
     transform: rotate(360deg);
   }
 }
+
+/* Fix for navbar overlapping content on all pages */
+.booking-page,
+.doctors-page,
+.services-page,
+.about-page,
+.contact-page,
+.profile-page,
+.appointments-container,
+.appointments-premium {
+  padding-top: 85px !important;
+}
+
+@media (max-width: 768px) {
+  .booking-page,
+  .doctors-page,
+  .services-page,
+  .about-page,
+  .contact-page,
+  .profile-page,
+  .appointments-container,
+  .appointments-premium {
+    padding-top: 70px !important;
+  }
+}
